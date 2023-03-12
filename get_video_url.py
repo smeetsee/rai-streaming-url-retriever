@@ -24,7 +24,7 @@ def get_channel_m3u8(url):
         })
     if response.status_code == 403:
         return 403
-    root = ET.ElementTree(response.content).getroot()
+    root = ET.fromstring(response.content)
     for child in root:
         if child.tag == 'url' and child.attrib == {'type': 'content'}:
             url = child.text.replace('\n', '').replace('\t', '')
