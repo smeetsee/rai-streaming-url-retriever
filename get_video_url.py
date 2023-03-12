@@ -14,6 +14,22 @@ def get_channel_m3u8(url):
         url = 'https://mediapolis.rai.it/relinker/relinkerServlet.htm?cont=746966&output=64'
     elif 'rai5' == url:
         url = 'https://mediapolis.rai.it/relinker/relinkerServlet.htm?cont=395276&output=64'
+    elif 'raigulp' == url:
+        url = 'https://mediapolis.rai.it/relinker/relinkerServlet.htm?cont=746953&output=64'
+    elif 'raimovie' == url:
+        url = 'https://mediapolis.rai.it/relinker/relinkerServlet.htm?cont=747002&output=64'
+    elif 'rainews24' == url:
+        url = 'https://mediapolis.rai.it/relinker/relinkerServlet.htm?cont=1&output=64'
+    elif 'raipremium' == url:
+        url = 'https://mediapolis.rai.it/relinker/relinkerServlet.htm?cont=746992&output=64'
+    elif 'raiscuola' == url:
+        url = 'https://mediapolis.rai.it/relinker/relinkerServlet.htm?cont=746953&output=64'
+    elif 'raisport' == url:
+        url = 'https://mediapolis.rai.it/relinker/relinkerServlet.htm?cont=358025&output=64'
+    elif 'raistoria' == url:
+        url = 'https://mediapolis.rai.it/relinker/relinkerServlet.htm?cont=746990&output=64'
+    elif 'raiyoyo' == url:
+        url = 'https://mediapolis.rai.it/relinker/relinkerServlet.htm?cont=746899&output=64'
     
     response = requests.get(url, headers={
         'User-Agent': 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/16.3 Safari/605.1.15',

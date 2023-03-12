@@ -51,3 +51,67 @@ def rai5():
         abort(m3u)
     else: 
         return m3u
+
+@app.route('/raigulp')
+def raigulp():
+    m3u = produce_m3u(channel='raigulp')
+    if m3u in [403, 404]:
+        abort(m3u)
+    else: 
+        return m3u
+
+@app.route('/raimovie')
+def raimovie():
+    m3u = produce_m3u(channel='raimovie')
+    if m3u in [403, 404]:
+        abort(m3u)
+    else: 
+        return m3u
+
+@app.route('/rainews24')
+def rainews24():
+    m3u = produce_m3u(channel='rainews24')
+    if m3u in [403, 404]:
+        abort(m3u)
+    else: 
+        return m3u
+
+@app.route('/raipremium')
+def raipremium():
+    m3u = produce_m3u(channel='raipremium')
+    if m3u in [403, 404]:
+        abort(m3u)
+    else: 
+        return m3u
+
+@app.route('/raiscuola')
+def raiscuola():
+    m3u = produce_m3u(channel='raiscuola')
+    if m3u in [403, 404]:
+        abort(m3u)
+    else: 
+        return m3u
+
+@app.route('/raisport')
+def raisport():
+    m3u = produce_m3u(channel='raisport')
+    if m3u in [403, 404]:
+        abort(m3u)
+    else: 
+        return m3u
+
+@app.route('/raistoria')
+def raistoria():
+    m3u = produce_m3u(channel='raistoria')
+    if m3u in [403, 404]:
+        abort(m3u)
+    else: 
+        return m3u
+
+@app.route('/raiyoyo')
+def raiyoyo():
+    m3u = produce_m3u(channel='raiyoyo')
+    if m3u in [403, 404]:
+        abort(m3u)
+    else: 
+        return m3u
