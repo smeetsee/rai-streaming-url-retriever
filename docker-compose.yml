@@ -5,4 +5,11 @@ services:
     build:
       context: .
       dockerfile: Dockerfile
+    ports:
+      - 34403:5000
+    dns:
+      - 2606:4700:4700::1111
+      - 2606:4700:4700::1001
+      - 1.1.1.1
+      - 1.0.0.1
     container_name: rai_m3u_retriever
