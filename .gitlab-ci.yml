@@ -1,0 +1,22 @@
+variables:
+  DOCKER_TLS_CERTDIR: "/certs"
+  DOCKER_PLATFORMS: linux/amd64,linux/arm64
+
+docker:
+  stage: deploy
+  image: docker:24
+  services:
+    - docker:24-dind
+  before_script:
+    - docker login --username $CI_REGISTRY_USER --password $CI_REGISTRY_PASSWORD $CI_REGISTRY
+  script:
+    - |
+      if [[ "$CI_COMMIT_BRANCH" == "$CI_DEFAULT_BRANCH" ]]; then
+        TAG="latest"
+      else
+        TAG="$CI_COMMIT_REF_SLUG"
+      fi
+    - docker context inspect rai-streaming-url-retriever-builder-context || docker context create rai-streaming-url-retriever-builder-context
+    - docker buildx inspect rai-streaming-url-retriever-builder-instance || docker buildx create --name rai-streaming-url-retriever-builder-instance --use rai-streaming-url-retriever-builder-context
+    - docker buildx use rai-streaming-url-retriever-builder-instance
+    - docker buildx build --file Dockerfile --push --platform $DOCKER_PLATFORMS --tag $CI_REGISTRY_IMAGE:$TAG .
