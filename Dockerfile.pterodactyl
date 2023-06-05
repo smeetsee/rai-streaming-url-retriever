@@ -16,5 +16,6 @@ WORKDIR /home/container
 COPY ./entrypoint.sh /entrypoint.sh
 
 CMD ["/bin/bash", "/entrypoint.sh"]
+ENV FLASK_APP=/opt/flask_app/flask_app.py
 
 # ENTRYPOINT FLASK_APP=flask_app.py flask run --host=0.0.0.0 --port=${SERVER_PORT}
