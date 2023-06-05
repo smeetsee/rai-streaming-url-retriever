@@ -1,0 +1,19 @@
+FROM python:3.11-alpine
+
+WORKDIR /opt/flask_app
+RUN pip install flask requests
+COPY flask_app.py get_video_url.py output_m3u.py /opt/flask_app/
+
+RUN adduser --disabled-password --home /home/container container
+
+USER container
+ENV  USER=container HOME=/home/container
+
+WORKDIR /home/container
+
+RUN apk add --no-cache bash
+COPY ./entrypoint.sh /entrypoint.sh
+
+CMD ["/bin/bash", "/entrypoint.sh"]
+
+# ENTRYPOINT FLASK_APP=flask_app.py flask run --host=0.0.0.0 --port=${SERVER_PORT}
