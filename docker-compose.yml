@@ -1,0 +1,8 @@
+version: '3.8'
+services:
+  flask:
+    restart: unless-stopped
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: rai_m3u_retriever
